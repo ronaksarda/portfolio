@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ronak Sarda - Software Developer">
+    <title>Ronak Sarda</title>
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="dark-mode">
+    <div class="container">
+
+        <!-- Navigation -->
+        <nav>
+            <div class="nav-brand">Ronak Sarda</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><button id="theme-toggle">Light Mode</button></li>
+            </ul>
+        </nav>
+
+        <!-- Hero -->
+        <section id="about" class="hero">
+            <h1>Undergradute Student.</h1>
+            <p>Focused on building robust backend architectures,
+                high-performance systems in C/C++, and scalable full-stack web applications.</p>
+        </section>
+
+        <!-- Skills -->
+        <section id="skills">
+            <h2>Technical Arsenal</h2>
+            <ul class="skills-list">
+                <li>C / C++</li>
+                <li>Python(Flask)</li>
+                <li>Python(OpenCV)</li>
+                <li>JavaScript</li>
+                <li>HTML & CSS</li>
+                <li>REST APIs</li>
+                <li>MySQL</li>
+                <li>Firebase</li>
+                <li>Git</li>
+                <li>Arduino IDE</li>
+                <li>Linux Shell</li>
+                <li>Google AntiGravity / Claude Code</li>
+            </ul>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects">
+            <h2>Featured Work</h2>
+            <div class="grid">
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>InstantDRS</h3>
+                        <span class="tech-badge">Python</span>
+                    </div>
+                    <p>An emergency response system designed to handle live queue processing and multimodal triage
+                        during critical situations.</p>
+                    <a href="https://github.com/ronaksarda/InstantDRS" target="_blank" class="card-link">View Source</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Vault</h3>
+                        <span class="tech-badge">C</span>
+                    </div>
+                    <p>A C-based file operating system focused on core file management, structure, and low-level system
+                        operations.</p>
+                    <a href="https://github.com/ronaksarda/Vault" target="_blank" class="card-link">View Source</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>High-Performance Engine</h3>
+                        <span class="tech-badge">C++</span>
+                    </div>
+                    <p>Currently developing a core systems application utilizing modern C++ memory management and
+                        execution optimization techniques.</p>
+                    <span class="card-link" style="color: var(--text-secondary); cursor: default;">In Development</span>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Competitive Programming</h3>
+                        <span class="tech-badge">Algorithms</span>
+                    </div>
+                    <p>Consistent problem solving focused on Data Structures. Actively refining algorithmic efficiency
+                        logic on LeetCode.</p>
+                    <a href="https://leetcode.com/ronnie0524/" target="_blank" class="card-link">View Profile</a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact">
+            <h2>Let's Connect</h2>
+            <p>I'm always open to discussing system architecture, software engineering roles, or new projects.</p>
+            <div class="contact-links">
+                <a href="mailto:rockysarda18@gmail.com" class="contact-link">rockysarda18@gmail.com</a>
+                <a href="https://github.com/ronaksarda" target="_blank" class="contact-link">GitHub</a>
+                <a href="https://www.linkedin.com/in/ronak-sarda05/" target="_blank" class="contact-link">LinkedIn</a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>Thank you!</p>
+        </footer>
+
+    </div>
+
+    <!-- Theme Toggle Script -->
+    <script>
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const currentTheme = localStorage.getItem('theme') || 'dark';
+
+        if (currentTheme === 'light') {
+            document.body.classList.remove('dark-mode');
+            themeToggleBtn.textContent = 'Dark Mode';
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            if (document.body.classList.contains('dark-mode')) {
+                themeToggleBtn.textContent = 'Light Mode';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                themeToggleBtn.textContent = 'Dark Mode';
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    </script>
+</body>
+
+</html>
