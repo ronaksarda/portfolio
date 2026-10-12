@@ -1,10 +1,51 @@
-// All site content lives here. Edit this file to update projects, wins and certificates.
+// All site content lives here. Every chat answer is built from this file, so edit it to change what the site says.
 window.SITE = {
     discord: 'samronnie_05',
+    email: 'rockysarda18@gmail.com',
+    phone: '+91 93904 17137',
+    resume: 'assets/resume/Ronak_Sarda_Resume.pdf',
+
+    links: [
+        { k: 'GitHub', v: '@ronaksarda', href: 'https://github.com/ronaksarda' },
+        { k: 'LinkedIn', v: '/in/ronak-sarda05', href: 'https://www.linkedin.com/in/ronak-sarda05/' },
+        { k: 'LeetCode', v: 'ronnie0524', href: 'https://leetcode.com/u/ronnie0524/' },
+        { k: 'HackerRank', v: 'ronnie0524', href: 'https://www.hackerrank.com/profile/ronnie0524' }
+    ],
+
+    facts: [
+        { big: '8.68', label: 'CGPA, first year' },
+        { big: '334+', label: 'LeetCode problems' },
+        { big: '13+', label: 'certificates' },
+        { big: '34', label: 'Google Cloud badges' }
+    ],
+
+    journey: [
+        {
+            when: 'Sep 2026 to now', title: 'Founding AI Engineering Intern', org: 'FschoolAI', where: 'San Francisco, CA · remote', current: true,
+            points: [
+                'Lead MVP delivery for an AI study platform, setting priorities for a team of 8 while building its tutor, rooms and courses in TypeScript and React.',
+                'Built the tutor reply path: streaming, model-tier routing and failover across providers, so one provider outage no longer breaks a session.',
+                'Built study rooms with a live whiteboard the AI draws and writes on, with one validation layer for every AI board action across typed, streamed and voice input.',
+                'Shipped a Course Maker that turns a Canvas syllabus into a full course, and an onboarding interview saved to student memory.'
+            ]
+        },
+        {
+            when: '2026', title: 'Technical Member', org: 'HICON & AWS Club, CBIT · GDG Hyderabad',
+            points: [
+                'Coordinator, SIH internal hackathon with HICON. Curated problem statements and hosted ceremonies for 400+ teams, 2,100+ students.',
+                'Organizer, HackIndia Spark11: 36-hour hackathon, 2,500+ participants, 550 teams.',
+                'Member, GDG Hyderabad. Google Cloud Facilitator 2026 with 34 Google Cloud skill badges.'
+            ]
+        },
+        {
+            when: 'Aug 2025 to May 2029', title: 'B.E. Information Technology', org: 'CBIT, Hyderabad', where: 'CGPA 8.68 / 10 (first year) · TS EAPCET 2025 rank 3007',
+            points: ['CS50x (Harvard, via edX) · HackerRank Gold in C & C++ · 334+ LeetCode problems.']
+        }
+    ],
 
     projects: [
         {
-            id: 'gitspace', name: 'GitSpace', kicker: 'developer universe', cat: ['web', 'systems'], wide: true, live: 'https://gitspace.me',
+            id: 'gitspace', tone: 'night', name: 'GitSpace', kicker: 'developer universe', cat: ['web', 'systems'], wide: true, live: 'https://gitspace.me',
             repo: 'https://github.com/ronaksarda/GitSpace', viz: 'gif',
             hook: 'Your GitHub universe as a galaxy you can fly through.',
             desc: 'Every developer is an island. Every repo is a building. Fly a ship with WASD, warp to other devs, unlock achievements.',
@@ -17,7 +58,7 @@ window.SITE = {
             ]
         },
         {
-            id: 'ranker', name: 'Candidate Ranker', kicker: 'offline AI hiring pipeline', cat: ['ai'],
+            id: 'ranker', tone: 'moss', name: 'Candidate Ranker', kicker: 'offline AI hiring pipeline', cat: ['ai'],
             repo: 'https://github.com/ronaksarda/candidate-ranker', viz: 'funnel', badge: 'Hack2Skill × Redrob',
             hook: '100,000 candidates ranked in under 5 minutes. CPU only.',
             desc: 'Solo build. Semantic embeddings plus deterministic scoring and honeypot detection. No cloud, no LLM calls.',
@@ -30,7 +71,7 @@ window.SITE = {
             ]
         },
         {
-            id: 'grantanchor', name: 'GrantAnchor', kicker: 'grant compliance with memory', cat: ['ai', 'web'], team: true,
+            id: 'grantanchor', tone: 'ink', name: 'GrantAnchor', kicker: 'grant compliance with memory', cat: ['ai', 'web'], team: true,
             repo: 'https://github.com/ronaksarda/microsoft-hindsight', viz: 'budget',
             hook: 'Checks every expense against the grant rules before the money goes out.',
             desc: 'And it learns. Stopped payments, funder approvals and surprise invoices go into Hindsight memory, so month nine is sharper than day one.',
@@ -43,7 +84,7 @@ window.SITE = {
             ]
         },
         {
-            id: 'labelsure', name: 'LabelSure AI', kicker: 'legal metrology compliance', cat: ['ai', 'web'], team: true,
+            id: 'labelsure', tone: 'brick', name: 'LabelSure AI', kicker: 'legal metrology compliance', cat: ['ai', 'web'], team: true,
             repo: 'https://github.com/ronaksarda/SIH-Project', viz: 'label', badge: 'Smart India Hackathon',
             hook: 'Audits product labels against Indian law. Without the LLM making stuff up.',
             desc: 'Checks packaged goods and e-commerce listings against the Legal Metrology (Packaged Commodities) Rules, 2011.',
@@ -56,7 +97,7 @@ window.SITE = {
             ]
         },
         {
-            id: 'reader', name: 'Screen Reader Agent', kicker: 'local AI voice layer', cat: ['ai'], wip: true,
+            id: 'reader', tone: 'plum', name: 'Screen Reader Agent', kicker: 'local AI voice layer', cat: ['ai'], wip: true,
             repo: 'https://github.com/ronaksarda/side-project', viz: 'wave',
             hook: 'Highlight any text. Press F8. It reads it to you.',
             desc: 'Offline-first screen reader with neural voices and a local LLM that explains text before reading it. Zero paid APIs.',
@@ -69,7 +110,7 @@ window.SITE = {
             ]
         },
         {
-            id: 'docask', name: 'doc_ask', kicker: 'local RAG document QA', cat: ['ai', 'web'],
+            id: 'docask', tone: 'moss', name: 'doc_ask', kicker: 'local RAG document QA', cat: ['ai', 'web'],
             repo: 'https://github.com/ronaksarda/doc-ask', viz: 'chat',
             hook: 'Upload a PDF. Ask it anything. Nothing leaves your laptop.',
             desc: 'Retrieval-augmented QA over PDF, DOCX and TXT, running fully local on Ollama.',
@@ -82,7 +123,7 @@ window.SITE = {
             ]
         },
         {
-            id: 'soulflow', name: 'SoulFlow', kicker: 'real-time computer vision', cat: ['ai', 'systems'],
+            id: 'soulflow', tone: 'night', name: 'SoulFlow', kicker: 'real-time computer vision', cat: ['ai', 'systems'],
             repo: 'https://github.com/ronaksarda/SoulFlow', viz: 'trail',
             hook: 'Draw neon in the air. The UI changes color with your mood.',
             desc: 'Hand tracking, gesture drawing and facial emotion classification at 45-60 FPS.',
@@ -94,7 +135,7 @@ window.SITE = {
             ]
         },
         {
-            id: 'vault', name: 'Vault', kicker: 'filesystem file locker', cat: ['systems'], wide: true,
+            id: 'vault', tone: 'ink', name: 'Vault', kicker: 'filesystem file locker', cat: ['systems'], wide: true,
             repo: 'https://github.com/ronaksarda/Vault', viz: 'vault',
             hook: 'Lock whole folders with one password. Pure C, zero dependencies.',
             desc: 'Interactive CLI that groups files into encrypted vaults and treats the filesystem as the source of truth.',
@@ -151,11 +192,9 @@ window.SITE = {
     ],
 
     stack: [
-        ['TypeScript', 'JavaScript', 'C++', 'C', 'Python', 'SQL', 'HTML', 'CSS', 'C++17', 'Bash'],
-        ['RAG pipelines', 'Sentence-Transformers', 'Hugging Face', 'Llama 3.1', 'Groq / Qwen Vision', 'Gemini', 'Ollama', 'MCP', 'AI agents'],
-        ['React', 'Node.js', 'Express', 'FastAPI', 'Flask', 'PostgreSQL', 'Supabase', 'Firebase', 'GitHub OAuth', 'Socket.IO'],
-        ['OpenCV', 'MediaPipe', 'ONNX Runtime', 'Tesseract OCR', 'NumPy', 'Pandas', 'Git', 'Linux', 'GCC']
-    ],
-
-    roles: ['AI agents', 'C++ layout engines', 'offline ML pipelines', 'vision-LLM systems', 'RAG pipelines']
+        ['Languages', 'TypeScript', 'JavaScript', 'C++', 'C', 'Python', 'SQL', 'HTML', 'CSS', 'C++17', 'Bash'],
+        ['AI and ML', 'RAG pipelines', 'Sentence-Transformers', 'Hugging Face', 'Llama 3.1', 'Groq / Qwen Vision', 'Gemini', 'Ollama', 'MCP', 'AI agents'],
+        ['Web and backend', 'React', 'Node.js', 'Express', 'FastAPI', 'Flask', 'PostgreSQL', 'Supabase', 'Firebase', 'GitHub OAuth', 'Socket.IO'],
+        ['Vision and tooling', 'OpenCV', 'MediaPipe', 'ONNX Runtime', 'Tesseract OCR', 'NumPy', 'Pandas', 'Git', 'Linux', 'GCC']
+    ]
 };

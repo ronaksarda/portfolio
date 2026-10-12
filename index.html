@@ -1,371 +1,101 @@
 <!DOCTYPE html>
-<html lang="en" data-world="night">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ronak Sarda · AI engineer and C++ developer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Ronak Sarda · AI engineer</title>
     <meta name="description" content="Ronak Sarda. Founding AI Engineering Intern @ FschoolAI, 2nd-year IT @ CBIT Hyderabad. AI agents, C++ systems, full-stack. Open to internships from Jan 2027.">
-    <meta name="theme-color" content="#05060f">
-    <meta property="og:title" content="Ronak Sarda · AI engineer and C++ developer">
+    <meta name="theme-color" content="#fbfbfa" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0e0e0d" media="(prefers-color-scheme: dark)">
+    <meta property="og:title" content="Ronak Sarda · AI engineer">
     <meta property="og:description" content="AI Engineering Intern @ FschoolAI · IT @ CBIT '29 · AI agents, C++ systems, full-stack.">
-    <meta property="og:image" content="https://ronaksarda.github.io/assets/avatar.jpg">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%2305060f'/><circle cx='50' cy='50' r='22' fill='%236ef3ff'/><ellipse cx='50' cy='50' rx='44' ry='12' fill='none' stroke='%23ff6ad5' stroke-width='5' transform='rotate(-20 50 50)'/></svg>">
+    <meta property="og:image" content="https://ronaksarda.github.io/assets/me.jpg">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%23111110'/><text x='50' y='69' font-family='Arial Black,Arial' font-weight='900' font-size='54' text-anchor='middle' fill='%23ff4f1a'>R</text></svg>">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Archivo:wdth,wght@100..125,500..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=14">
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Archivo:wdth,wght@100..125,600..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=20">
+    <script>
+        try { const t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) { }
+    </script>
 </head>
 
-<body class="loading">
-    <!-- ============ LOADER ============ -->
-    <div id="loader" aria-hidden="true">
-        <div class="ld-orbit"><span class="ld-planet"></span><span class="ld-moon"></span></div>
-        <div class="ld-text" id="ld-text">initialising universe</div>
-        <div class="ld-bar"><span id="ld-bar"></span></div>
-        <div class="ld-count"><span id="ld-num">00</span></div>
-    </div>
+<body>
+    <a class="skip" href="#ask-input">Skip to the question box</a>
 
-    <!-- ============ WORLD: NIGHT (SPACE) ============ -->
-    <div class="world" id="world-night" aria-hidden="true">
-        <div class="nebula nb1"></div>
-        <div class="nebula nb2"></div>
-        <div class="nebula nb3"></div>
-        <canvas id="star-canvas"></canvas>
-        <div class="planet-big"><span class="ring"></span></div>
-        <div class="planet-small"></div>
-    </div>
-
-    <!-- ============ WORLD: MORNING (ANIME VALLEY) ============ -->
-    <div class="world" id="world-day" aria-hidden="true">
-        <div class="sky"></div>
-        <div class="sun"><span class="rays"></span></div>
-        <canvas id="cloud-canvas"></canvas>
-        <svg id="valley" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice"></svg>
-        <div class="birds"><i></i><i></i><i></i><i></i><i></i></div>
-        <canvas id="meadow-canvas"></canvas>
-    </div>
-
-    <!-- ============ FX ============ -->
-    <canvas id="fx-canvas" aria-hidden="true"></canvas>
-    <div class="grain" aria-hidden="true"></div>
-    <div id="cursor" aria-hidden="true"><span id="cursor-label"></span></div>
-    <div id="progress" aria-hidden="true"></div>
-    <div id="toast" role="status" aria-live="polite"></div>
-
-    <!-- ============ NAV ============ -->
-    <header class="nav" id="nav">
-        <a href="#top" class="brand magnetic" >
-            <span class="brand-orb"></span>
-            <span class="brand-name">ronak<span class="blink">_</span></span>
-        </a>
-        <nav class="nav-links" id="nav-links" aria-label="Sections">
-            <a href="#about">about</a>
-            <a href="#journey">journey</a>
-            <a href="#work">work</a>
-            <a href="#wins">wins</a>
-            <a href="#stats">stats</a>
-            <a href="#contact">contact</a>
-        </nav>
-        <div class="nav-right">
-            <button id="world-toggle" class="world-toggle magnetic" aria-label="Switch between night sky and morning" data-cursor="switch worlds">
-                <span class="wt-track"><span class="wt-knob"><span class="wt-moon"></span><span class="wt-sun"></span></span><span class="wt-stars"><i></i><i></i><i></i></span><span class="wt-cloud"></span></span>
-                <span class="wt-label" id="wt-label">night</span>
+    <header class="top">
+        <button class="brand" id="home" type="button" aria-label="Back to start">
+            <img src="assets/me.jpg" alt="" width="32" height="32">
+            <span>Ronak Sarda</span>
+        </button>
+        <button class="status" type="button" data-ask="contact">Open to internships from Jan 2027</button>
+        <div class="top-actions">
+            <a class="top-link" href="assets/resume/Ronak_Sarda_Resume.pdf" download>Resume</a>
+            <button class="icon-btn" id="theme" type="button" aria-label="Switch to dark theme">
+                <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z" /></svg>
+                <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" /></svg>
             </button>
-            <a class="btn-mini magnetic" href="assets/resume/Ronak_Sarda_Resume.pdf" download data-cursor="grab it">resume ↓</a>
-            <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
         </div>
     </header>
 
-    <main id="top">
-        <!-- ============ HERO ============ -->
-        <section class="hero" id="hero">
-            <div class="hero-left">
+    <main>
+        <section class="hero" id="hero" aria-labelledby="hero-title">
+            <div class="hero-inner">
+                <img class="hero-photo" src="assets/me.jpg" alt="Ronak Sarda" width="168" height="168">
+                <p class="hello">Hey, I'm Ronak</p>
+                <h1 id="hero-title">AI Engineer</h1>
+                <p class="hero-sub">Founding AI Engineering Intern at <b>FschoolAI</b>. IT at CBIT Hyderabad, class of 2029. I build AI agents and write C++ when speed matters.</p>
 
-                <p class="hero-hello reveal">hey, i'm</p>
-                <h1 class="hero-name" id="hero-name" aria-label="Ronak Sarda">
-                    <span class="hn-row" data-text="RONAK">RONAK</span>
-                    <span class="hn-row hn-solid" data-text="SARDA">SARDA</span>
-                </h1>
-                <p class="hero-aka reveal">IT @ CBIT, Hyderabad · class of 2029</p>
+                <form class="ask" id="hero-form" autocomplete="off">
+                    <label class="sr" for="ask-input">Ask me anything</label>
+                    <input id="ask-input" name="q" type="text" placeholder="Ask me anything…" maxlength="200" enterkeyhint="send">
+                    <button class="send" type="submit" aria-label="Send">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5" /></svg>
+                    </button>
+                </form>
 
-                <p class="hero-tag reveal">
-                    I work on <span class="typed-wrap"><span id="typed">AI agents</span><span class="caret">|</span></span>
-                </p>
-
-                <div class="hero-cta reveal">
-                    <a href="#work" class="btn btn-primary magnetic"><span>see the work</span><b>→</b></a>
-                    <a href="assets/resume/Ronak_Sarda_Resume.pdf" download class="btn btn-ghost magnetic"><span>download resume</span><b>↓</b></a>
-                </div>
-
-                <div class="hero-open reveal">
-                    Founding AI Engineering Intern @ <b>FschoolAI</b> · open to internships from <b>Jan 2027</b>
-                </div>
+                <div class="chips hero-chips" id="hero-chips"></div>
             </div>
-
-            <div class="hero-right reveal">
-                <div class="avatar-system" id="avatar-system">
-                    <div class="orbit o1"><span class="sat">C++</span></div>
-                    <div class="orbit o2"><span class="sat">Py</span></div>
-                    <div class="orbit o3"><span class="sat">AI</span></div>
-                    <div class="orbit o4"><span class="sat">JS</span></div>
-                    <svg class="avatar-ring" viewBox="0 0 300 300" aria-hidden="true">
-                        <defs><path id="ring-path" d="M150,150 m-118,0 a118,118 0 1,1 236,0 a118,118 0 1,1 -236,0" /></defs>
-                        <text><textPath href="#ring-path">RONAK SARDA · CBIT '29 · HYDERABAD · </textPath></text>
-                    </svg>
-                    <div class="avatar-core" >
-                        <img src="assets/me.jpg" onerror="this.onerror=null;this.src='assets/avatar.jpg'" alt="Ronak Sarda" width="220" height="220">
-                    </div>
-                </div>
-            </div>
-
-            <a href="#about" class="scroll-cue" aria-label="Scroll down"><span></span></a>
+            <div class="bigword" aria-hidden="true">RONAK</div>
         </section>
 
-        <!-- ============ MARQUEE ============ -->
-        <div class="marquee" aria-hidden="true">
-            <div class="mq-track">
-                <span>AI AGENTS</span><i>/</i><span>C++ SYSTEMS</span><i>/</i><span>OFFLINE ML</span><i>/</i><span>VISION-LLM</span><i>/</i><span>FULL-STACK</span><i>/</i><span>RAG PIPELINES</span><i>/</i><span>HACKATHONS</span><i>/</i>
-                <span>AI AGENTS</span><i>/</i><span>C++ SYSTEMS</span><i>/</i><span>OFFLINE ML</span><i>/</i><span>VISION-LLM</span><i>/</i><span>FULL-STACK</span><i>/</i><span>RAG PIPELINES</span><i>/</i><span>HACKATHONS</span><i>/</i>
-            </div>
-        </div>
-
-        <!-- ============ ABOUT ============ -->
-        <section class="section" id="about">
-            <header class="sec-head reveal">
-                <h2 class="sec-title" data-scramble>who am I</h2>
-                <p class="sec-note">The terminal works. Type <code>help</code>.</p>
-            </header>
-
-            <div class="about-grid">
-                <div class="terminal reveal glass" id="terminal">
-                    <div class="term-bar"><i></i><i></i><i></i><span>ronak@cbit ~ zsh</span></div>
-                    <div class="term-body" id="term-body">
-                        <div id="term-out"></div>
-                        <form id="term-form" class="term-line" autocomplete="off">
-                            <span class="term-ps">➜ ~</span>
-                            <input id="term-input" type="text" spellcheck="false" aria-label="Terminal input" placeholder="type help">
-                        </form>
-                    </div>
-                </div>
-
-                <div class="about-copy reveal">
-                    <p class="lead">
-                        2nd-year <mark>IT undergrad at CBIT</mark>, Hyderabad, and <mark>Founding AI Engineering Intern at FschoolAI</mark>.
-                    </p>
-                    <p>
-                        I build AI agents and RAG pipelines, and write C++ for performance-bound problems: ranking 100,000 candidates on one CPU, holding 60 FPS without WebGL, grounding a vision LLM.
-                        Technical member of the HICON and AWS clubs at CBIT and member of GDG Hyderabad. CS50x graduate, HackerRank gold in C &amp; C++.
-                    </p>
-                    <div class="stat-grid">
-                        <div class="stat glass"><b data-count="8.68" data-decimals="2">0</b><span>CGPA · 1st year</span></div>
-                        <div class="stat glass"><b data-count="334" data-suffix="+" id="stat-lc">0</b><span>LeetCode solved</span></div>
-                        <div class="stat glass"><b data-count="13" data-suffix="+">0</b><span>certificates</span></div>
-                        <div class="stat glass"><b data-count="34">0</b><span>Google Cloud badges</span></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ============ JOURNEY ============ -->
-        <section class="section" id="journey">
-            <header class="sec-head reveal">
-                <h2 class="sec-title" data-scramble>the journey</h2>
-                <p class="sec-note">Where I've been shipping.</p>
-            </header>
-
-            <ol class="journey" id="journey-list">
-                <span class="journey-line"><span id="journey-fill"></span></span>
-                <li class="j-item reveal">
-                    <span class="j-node"></span>
-                    <div class="j-card glass">
-                        <div class="j-top"><span class="j-when">Sep 2026 to now</span><span class="j-tag hot">current</span></div>
-                        <h3>Founding AI Engineering Intern · <span class="grad-text">FschoolAI</span></h3>
-                        <p class="j-where">San Francisco, CA · remote</p>
-                        <ul>
-                            <li>Lead MVP delivery for an AI study platform, setting priorities for a team of 8 while building its tutor, rooms and courses in <b>TypeScript and React</b>.</li>
-                            <li>Built the tutor reply path: streaming, model-tier routing and failover across providers, so one provider outage no longer breaks a session.</li>
-                            <li>Built study rooms with a live whiteboard the AI draws and writes on, with one validation layer for every AI board action across typed, streamed and voice input.</li>
-                            <li>Shipped a Course Maker that turns a Canvas syllabus into a full course, and an onboarding interview saved to student memory.</li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="j-item reveal">
-                    <span class="j-node"></span>
-                    <div class="j-card glass">
-                        <div class="j-top"><span class="j-when">2026</span><span class="j-tag">clubs</span></div>
-                        <h3>Technical Member · HICON &amp; AWS Club, CBIT · GDG Hyderabad</h3>
-                        <ul>
-                            <li><b>Coordinator, SIH internal hackathon</b> with HICON. Curated problem statements and hosted ceremonies for 400+ teams, 2,100+ students.</li>
-                            <li><b>Organizer, HackIndia Spark11</b>: 36-hour hackathon, 2,500+ participants, 550 teams.</li>
-                            <li><b>Member, GDG Hyderabad</b> (Google Developer Groups).</li>
-                            <li><b>Google Cloud Facilitator 2026</b>, 34 Google Cloud skill badges.</li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="j-item reveal">
-                    <span class="j-node"></span>
-                    <div class="j-card glass">
-                        <div class="j-top"><span class="j-when">Aug 2025 to May 2029</span><span class="j-tag">education</span></div>
-                        <h3>B.E. Information Technology · CBIT, Hyderabad</h3>
-                        <p class="j-where">CGPA 8.68 / 10 (1st year) · TS EAPCET 2025 rank 3007</p>
-                        <ul>
-                            <li>CS50x (Harvard, via edX) · HackerRank Gold in C &amp; C++ · 334+ LeetCode problems.</li>
-                        </ul>
-                    </div>
-                </li>
-            </ol>
-        </section>
-
-        <!-- ============ WORK ============ -->
-        <section class="section" id="work">
-            <header class="sec-head reveal">
-                <h2 class="sec-title" data-scramble>selected work</h2>
-                <p class="sec-note">Own repos only, no forks. Click a card for details.</p>
-            </header>
-
-            <div class="filters reveal" role="group" aria-label="Filter projects">
-                <button class="filter active" data-filter="all">all</button>
-                <button class="filter" data-filter="ai">ai / ml</button>
-                <button class="filter" data-filter="systems">systems</button>
-                <button class="filter" data-filter="web">full-stack</button>
-            </div>
-
-            <div class="projects" id="projects"></div>
-
-            <div class="hangar reveal">
-                <h3 class="sub-title">in the hangar <span>/ building right now</span></h3>
-                <div class="hangar-grid" id="hangar"></div>
-            </div>
-
-            <div class="lab reveal">
-                <h3 class="sub-title">the lab <span>/ more things I built</span></h3>
-                <div class="lab-chips" id="lab"></div>
-            </div>
-        </section>
-
-        <!-- ============ WINS ============ -->
-        <section class="section" id="wins">
-            <header class="sec-head reveal">
-                <h2 class="sec-title" data-scramble>wins</h2>
-                <p class="sec-note">Cards marked "view" open the certificate.</p>
-            </header>
-
-            <div class="trophies" id="trophies"></div>
-
-            <h3 class="sub-title reveal">certificates <span>/ drag, or click to zoom</span></h3>
-            <div class="cert-rail reveal" id="cert-rail"></div>
-            <div class="cert-extra reveal">
-                <span class="chip">Claude Academy · AI Fluency &amp; MCP</span>
-                <span class="chip">CS50x · Harvard</span>
-                <span class="chip">34 Google Cloud skill badges</span>
-                <span class="chip">HackerRank Gold · C &amp; C++</span>
-            </div>
-        </section>
-
-        <!-- ============ STACK ============ -->
-        <section class="section" id="stack">
-            <header class="sec-head reveal">
-                <h2 class="sec-title" data-scramble>stack</h2>
-                <p class="sec-note">Hover a row to pause it.</p>
-            </header>
-            <div class="stack-rows" id="stack-rows"></div>
-        </section>
-
-        <!-- ============ STATS ============ -->
-        <section class="section" id="stats">
-            <header class="sec-head reveal">
-                <h2 class="sec-title" data-scramble>github &amp; leetcode</h2>
-                <p class="sec-note">Live numbers, fetched when the page loads.</p>
-            </header>
-
-            <div class="stats-grid">
-                <div class="panel glass reveal">
-                    <div class="panel-head"><span>GitHub</span><a href="https://github.com/ronaksarda" target="_blank" rel="noopener">@ronaksarda ↗</a></div>
-                    <div class="gh-nums">
-                        <div><b id="gh-repos">55</b><span>public repos</span></div>
-                        <div><b id="gh-stars">15</b><span>stars on own repos</span></div>
-                        <div><b id="gh-followers">7</b><span>followers</span></div>
-                    </div>
-                    <div class="lang-bar" id="lang-bar"></div>
-                    <div class="lang-legend" id="lang-legend"></div>
-                </div>
-
-                <div class="panel glass reveal">
-                    <div class="panel-head"><span>LeetCode</span><a href="https://leetcode.com/u/ronnie0524/" target="_blank" rel="noopener">ronnie0524 ↗</a></div>
-                    <div class="lc-wrap">
-                        <svg class="lc-ring" viewBox="0 0 120 120" aria-hidden="true">
-                            <circle cx="60" cy="60" r="50" class="lc-bg" />
-                            <circle cx="60" cy="60" r="50" class="lc-arc lc-easy" id="lc-easy" />
-                            <circle cx="60" cy="60" r="50" class="lc-arc lc-med" id="lc-med" />
-                            <circle cx="60" cy="60" r="50" class="lc-arc lc-hard" id="lc-hard" />
-                        </svg>
-                        <div class="lc-center"><b id="lc-total">334</b><span>solved</span></div>
-                    </div>
-                    <div class="lc-rows">
-                        <div><span class="lc-dot easy"></span>easy <b id="lc-e">167</b></div>
-                        <div><span class="lc-dot med"></span>medium <b id="lc-m">138</b></div>
-                        <div><span class="lc-dot hard"></span>hard <b id="lc-h">29</b></div>
-                    </div>
-                    <p class="lc-note">top 18% globally</p>
-                </div>
-
-                <div class="panel glass reveal panel-wide">
-                    <div class="panel-head"><span>contributions · last year</span></div>
-                    <div class="contrib">
-                        <img id="contrib-img" src="https://ghchart.rshah.org/6ef3ff/ronaksarda" alt="GitHub contribution chart for ronaksarda" loading="lazy">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ============ CONTACT ============ -->
-        <section class="section contact" id="contact">
-            <header class="sec-head reveal">
-                <h2 class="sec-title" data-scramble>let's build</h2>
-                <p class="sec-note">Internships from January 2027, hackathon teams, or a good systems conversation.</p>
-            </header>
-
-            <button class="mega-mail reveal" id="mega-mail" data-cursor="copy!">
-                <span class="mm-text">rockysarda18@<wbr>gmail.com</span>
-                <span class="mm-hint">click to copy ⧉</span>
-            </button>
-
-            <div class="contact-grid">
-                <a class="c-tile glass reveal" href="tel:+919390417137"><span class="c-ico">☏</span><span class="c-k">phone</span><span class="c-v">+91 93904 17137</span></a>
-                <a class="c-tile glass reveal" href="https://www.linkedin.com/in/ronak-sarda05/" target="_blank" rel="noopener"><span class="c-ico">in</span><span class="c-k">linkedin</span><span class="c-v">/in/ronak-sarda05</span></a>
-                <a class="c-tile glass reveal" href="https://github.com/ronaksarda" target="_blank" rel="noopener"><span class="c-ico">⌥</span><span class="c-k">github</span><span class="c-v">@ronaksarda</span></a>
-                <a class="c-tile glass reveal" href="https://leetcode.com/u/ronnie0524/" target="_blank" rel="noopener"><span class="c-ico">{ }</span><span class="c-k">leetcode</span><span class="c-v">ronnie0524</span></a>
-                <a class="c-tile glass reveal" href="https://www.hackerrank.com/profile/ronnie0524" target="_blank" rel="noopener"><span class="c-ico">H</span><span class="c-k">hackerrank</span><span class="c-v">ronnie0524</span></a>
-                <button class="c-tile glass reveal" id="discord-tile"><span class="c-ico">◉</span><span class="c-k">discord</span><span class="c-v" id="discord-handle">samronnie_05</span></button>
-                <a class="c-tile glass reveal c-resume" href="assets/resume/Ronak_Sarda_Resume.pdf" download><span class="c-ico">↓</span><span class="c-k">resume</span><span class="c-v">Ronak_Sarda_Resume.pdf</span></a>
-            </div>
-        </section>
+        <section class="thread" id="thread" aria-label="Conversation" aria-live="polite"></section>
     </main>
 
-    <footer class="footer">
-        <div class="footer-big" aria-hidden="true"><span>RONAK</span><span>SARDA</span></div>
-        <div class="footer-row">
-            <span>© <span id="year">2026</span> Ronak Sarda</span>
-            <span>Hyderabad · <b id="clock">--:--</b> IST</span>
-            <span class="egg">try ↑ ↑ ↓ ↓ ← → ← → B A</span>
-            <a href="#top">back to orbit ↑</a>
-        </div>
-    </footer>
-
-    <!-- ============ MODAL / LIGHTBOX ============ -->
-    <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
-        <div class="modal-backdrop" data-close></div>
-        <div class="modal-card glass">
-            <button class="modal-x" data-close aria-label="Close">✕</button>
-            <div id="modal-body"></div>
+    <div class="dock" id="dock">
+        <div class="dock-inner">
+            <button class="dock-toggle" id="dock-toggle" type="button" aria-expanded="true" aria-controls="dock-chips">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
+                <span>Hide quick questions</span>
+            </button>
+            <div class="chips dock-chips" id="dock-chips"></div>
+            <form class="ask" id="dock-form" autocomplete="off">
+                <label class="sr" for="dock-input">Ask me anything</label>
+                <input id="dock-input" name="q" type="text" placeholder="Ask me anything…" maxlength="200" enterkeyhint="send">
+                <button class="send" type="submit" aria-label="Send">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5" /></svg>
+                </button>
+            </form>
+            <p class="fineprint">Answers come from my own notes on this page. No model, nothing leaves your browser.</p>
         </div>
     </div>
 
-    <script src="data.js?v=13"></script>
-    <script src="scene.js?v=13"></script>
-    <script src="script.js?v=13"></script>
+    <dialog class="lightbox" id="lightbox" aria-label="Certificate">
+        <form method="dialog"><button class="icon-btn lb-x" aria-label="Close">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" /></svg>
+            </button></form>
+        <img id="lb-img" alt="">
+        <p id="lb-cap"></p>
+    </dialog>
+
+    <noscript>
+        <p style="padding:24px;max-width:60ch;margin:auto">This page answers questions with JavaScript. Without it: email <a href="mailto:rockysarda18@gmail.com">rockysarda18@gmail.com</a>, see <a href="https://github.com/ronaksarda">GitHub</a>, or grab the <a href="assets/resume/Ronak_Sarda_Resume.pdf">resume</a>.</p>
+    </noscript>
+
+    <script src="data.js?v=20"></script>
+    <script src="script.js?v=20"></script>
 </body>
 
 </html>
