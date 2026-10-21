@@ -211,6 +211,32 @@
         <ul class="mini-list">${S.lab.map((l) => `<li><a class="ml-name" href="${l.repo}" target="_blank" rel="noopener">${esc(l.name)}</a><span class="ml-note">${esc(l.note)}</span></li>`).join('')}</ul>`;
     }
 
+    function renderDemo(p) {
+        if (!p.demo && !p.video) return '';
+        const play = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>';
+        const video = p.video ? `<div class="demo-video"><button type="button" data-video="${p.video}" aria-label="Play ${esc(p.name)} demo video" style="background-image:url(https://i.ytimg.com/vi/${p.video}/hqdefault.jpg)"><span>${play}</span></button></div>` : '';
+        const steps = p.demo ? `<div class="demo-head"><span>How it runs</span><button type="button" data-replay>Replay</button></div>
+            <ol class="demo-log" data-demo="${p.id}">${p.demo.map((x) => `<li${x[0] === '=' ? ' class="res"' : ''}>${esc(x.replace(/^=/, ''))}</li>`).join('')}</ol>` : '';
+        return `<div class="demo">${video}${steps}</div>`;
+    }
+
+    function playDemo(log) {
+        clearTimeout(log._t);
+        const items = [...log.children];
+        items.forEach((li) => li.classList.toggle('on', reduced));
+        if (reduced) return;
+        let i = 0;
+        const next = () => { if (i < items.length) { items[i++].classList.add('on'); log._t = setTimeout(next, 700); } };
+        next();
+    }
+
+    // play each demo once when it scrolls into view
+    const demoSeen = new IntersectionObserver((es) => es.forEach((en) => {
+        if (en.isIntersecting) { demoSeen.unobserve(en.target); playDemo(en.target); }
+    }), { threshold: 0.6 });
+    new MutationObserver(() => thread.querySelectorAll('[data-demo]:not([data-seen])').forEach((el) => { el.dataset.seen = 1; demoSeen.observe(el); }))
+        .observe(thread, { childList: true, subtree: true });
+
     function renderProject(p) {
         const others = P.filter((x) => x.id !== p.id && x.cat.some((c) => p.cat.includes(c))).slice(0, 3);
         return `
@@ -221,6 +247,7 @@
                 <h3>${esc(p.name)}</h3>
                 <p class="detail-desc">${esc(p.desc)}</p>
                 <ul>${p.points.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>
+                ${renderDemo(p)}
                 <div class="tags">${p.tags.map((t) => `<span>${esc(t)}</span>`).join('')}</div>
                 <div class="links">
                     ${p.live ? ext(p.live, 'Open live site', true) : ''}
@@ -416,8 +443,16 @@
 
     /* ---------- events ---------- */
     document.addEventListener('click', (e) => {
-        const t = e.target.closest('[data-ask],[data-project],[data-cert],[data-copy],[data-rail],[data-more]');
+        const t = e.target.closest('[data-ask],[data-project],[data-cert],[data-copy],[data-rail],[data-more],[data-video],[data-replay]');
         if (!t) return;
+        if (t.dataset.video) {
+            const f = document.createElement('iframe');
+            f.src = `https://www.youtube-nocookie.com/embed/${t.dataset.video}?autoplay=1&rel=0`;
+            f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+            f.allowFullscreen = true; f.title = 'Project demo video';
+            return t.replaceWith(f);
+        }
+        if ('replay' in t.dataset) return playDemo(t.closest('.demo').querySelector('.demo-log'));
         if (t.dataset.ask) return askIntent(t.dataset.ask);
         if (t.dataset.project) return askProject(t.dataset.project);
         if (t.dataset.cert) return openCert(t.dataset.cert);
