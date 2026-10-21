@@ -112,20 +112,6 @@ window.SITE = {
             ]
         },
         {
-            id: 'interviewer', tone: 'night', name: 'AI Interview Agent', kicker: 'adaptive technical interviewer', cat: ['ai', 'web'], badge: 'AB Talks', live: 'https://ab-talks-hackathon-lyart.vercel.app',
-            repo: 'https://github.com/ronaksarda/AB-talks-Hackathon', viz: 'chat',
-            hook: 'A multi-turn interviewer that tracks what you have covered and pivots when you stall.',
-            desc: 'Grounded in a 31-day AI engineering curriculum. Enforces coverage thresholds, fails over across three model tiers, and writes a structured report.',
-            tags: ['Python', 'Flask', 'LLM failover', 'Vercel'],
-            demo: ['Load candidate profile and the 31-day curriculum', 'Ask an adaptive question grounded in a curriculum topic', 'Track concept coverage after every answer', 'Primary model down? Fail over to the next of three tiers', 'Coverage below threshold: pivot to an uncovered concept', '=Structured performance report generated'],
-            points: [
-                'Conducts adaptive technical interviews grounded in a 31-day AI engineering curriculum.',
-                '3-tier model failover so a provider outage does not end the interview.',
-                'Serverless persistent session store and coverage-and-pivot logic.',
-                'Built for the AB Talks hackathon and deployed on Vercel.'
-            ]
-        },
-        {
             id: 'rideradar', tone: 'brick', name: 'Ride Radar', kicker: 'transit risk for cabs and autos', cat: ['web', 'systems'],
             repo: 'https://github.com/ronaksarda/ride-radar', viz: 'map',
             hook: 'One tap: Green, Amber or Red for where you are and what hour it is.',
