@@ -30,7 +30,7 @@ window.SITE = {
             ]
         },
         {
-            when: '2026', title: 'Technical Member', org: 'HICON & AWS Club, CBIT · GDG Hyderabad',
+            when: '2026', title: 'Technical Member', org: 'HICON, CBIT · GDG Hyderabad',
             points: [
                 'Coordinator, SIH internal hackathon with HICON. Curated problem statements and hosted ceremonies for 400+ teams, 2,100+ students.',
                 'Organizer, HackIndia Spark11: 36-hour hackathon, 2,500+ participants, 550 teams.',
@@ -39,7 +39,7 @@ window.SITE = {
         },
         {
             when: 'Aug 2025 to May 2029', title: 'B.E. Information Technology', org: 'CBIT, Hyderabad', where: 'CGPA 8.68 / 10 (first year) · TS EAPCET 2025 rank 3007',
-            points: ['CS50x (Harvard, via edX) · HackerRank Gold in C & C++ · 334+ LeetCode problems.']
+            points: ['CS50x (Harvard, via edX) · HackerRank Gold in C & C++ · 334+ LeetCode problems.', 'Taking Probability for AI (Stanford) right now.']
         }
     ],
 
@@ -59,6 +59,33 @@ window.SITE = {
             ]
         },
         {
+            id: 'gitspace', tone: 'night', name: 'GitSpace', kicker: 'developer universe', cat: ['web', 'systems'], wide: true, live: 'https://gitspace.me',
+            repo: 'https://github.com/ronaksarda/GitSpace', viz: 'gif',
+            hook: 'Your GitHub universe as a galaxy you can fly through.',
+            desc: 'Every developer is an island. Every repo is a building. Fly a ship with WASD, warp to other devs, unlock achievements.',
+            tags: ['JavaScript', 'Node / Express', 'PostgreSQL', 'C++17', 'HTML5 Canvas', 'Render'],
+            points: [
+                'Full-stack app that renders any GitHub account as an interactive 2D world on HTML5 Canvas.',
+                'C++17 spatial layout engine with a JS fallback that keeps 60 FPS without WebGL.',
+                'Fixed core layout bottlenecks: tested capacity went from 2,500 to 80,000+ repos (~10,000 simulated users).',
+                'Live in production on Render with 30+ active users.'
+            ]
+        },
+        {
+            id: 'ghosttext', tone: 'night', name: 'Ghost Text', kicker: 'prompt-injection cleaner', cat: ['ai', 'systems'],
+            repo: 'https://github.com/ronaksarda/ghost-text', img: 'https://raw.githubusercontent.com/ronaksarda/ghost-text/main/media/cover.png',
+            video: 'HSeiU1gsd0k',
+            hook: 'A web page can say one thing to you and another to your AI. Ghost Text finds the second one.',
+            desc: 'Browser extension, page checker and API that find hidden text aimed at AI assistants and remove it before the assistant reads the page.',
+            tags: ['Python', 'Browser extension', 'Prompt injection', 'SerpApi'],
+            points: [
+                'Finds text hidden by white-on-white, 1px fonts, boxes pushed thousands of pixels off screen and invisible Unicode.',
+                'The extension removes the hostile text from the page itself, so the assistant reading your tab gets the cleaned page.',
+                'Short labels never leave the browser. Only hidden sentences the rules cannot decide go to a judge, and one checkbox turns that off.',
+                'Search check opens the top five results in cloud browsers and scans them before an agent does.'
+            ]
+        },
+        {
             id: 'ideator', tone: 'moss', name: 'Ideator', kicker: 'startup idea vs. the real market', cat: ['ai', 'web'],
             repo: 'https://github.com/ronaksarda/ideator', viz: 'graph',
             video: 'BAruAQ9rAyY',
@@ -71,19 +98,6 @@ window.SITE = {
                 'Everything lands in a FalkorDB graph, one per user session, using parameterized MERGE queries.',
                 'The agent picks one MCP graph tool per step and streams its reasoning to the UI in plain words.',
                 'The final decision is stored in the graph, linked to the evidence behind it.'
-            ]
-        },
-        {
-            id: 'gitspace', tone: 'night', name: 'GitSpace', kicker: 'developer universe', cat: ['web', 'systems'], wide: true, live: 'https://gitspace.me',
-            repo: 'https://github.com/ronaksarda/GitSpace', viz: 'gif',
-            hook: 'Your GitHub universe as a galaxy you can fly through.',
-            desc: 'Every developer is an island. Every repo is a building. Fly a ship with WASD, warp to other devs, unlock achievements.',
-            tags: ['JavaScript', 'Node / Express', 'PostgreSQL', 'C++17', 'HTML5 Canvas', 'Render'],
-            points: [
-                'Full-stack app that renders any GitHub account as an interactive 2D world on HTML5 Canvas.',
-                'C++17 spatial layout engine with a JS fallback that keeps 60 FPS without WebGL.',
-                'Fixed core layout bottlenecks: tested capacity went from 2,500 to 80,000+ repos (~10,000 simulated users).',
-                'Live in production on Render with 30+ active users.'
             ]
         },
         {
@@ -100,17 +114,16 @@ window.SITE = {
             ]
         },
         {
-            id: 'alreadybuilt', tone: 'plum', name: 'Already Built?', kicker: 'competitor research for ideas', cat: ['ai', 'web'],
-            repo: 'https://github.com/ronaksarda/already-built', viz: 'quadrant',
-            hook: 'Describe your idea, find out who already built it, and where the gap is.',
-            desc: 'Searches GitHub, Hugging Face and Hacker News, ranks results with local embeddings, and maps competitors onto a 2D market quadrant.',
-            tags: ['Python', 'Embeddings', 'Gemma', 'Hugging Face'],
-            demo: ['Type or speak the product idea', 'Search GitHub, Hugging Face Spaces and Models, and Show HN', 'Rank candidates locally with open-weight embeddings', 'Place every competitor on a 2D market quadrant', '=Grounded breakdown of what exists and which gaps are left open'],
+            id: 'pramaan', tone: 'ink', name: 'Pramaan', kicker: 'verified disclosure for AICTE approvals', cat: ['ai', 'web'], team: true,
+            repo: 'https://github.com/ronaksarda/pramaan-sih26261', badge: 'Smart India Hackathon 2026',
+            hook: 'College approvals run on self-declared paperwork. Pramaan rates how much of each claim is proven.',
+            desc: 'Working MVP for SIH 2026 PS 26261. Applications and documents are synthetic; the checks run for real.',
+            tags: ['Python', 'FastAPI', 'pyHanko', 'CLIP', 'RapidOCR'],
             points: [
-                'Seven-stage pipeline from idea to a grounded competitive breakdown.',
-                'Local semantic vector ranking, no hosted embedding API.',
-                'Offline demo mode with a recorded result for instant playback.',
-                'Packaged as a reusable agent skill.'
+                'Every claim gets a proof level, from confirmed by the issuer to contradicted. Each application gets a Proof Score.',
+                'Cross-college checks: the same faculty PAN, as a salted hash, on two lists, and photos reused across colleges.',
+                'Approval issues a PDF signed with a test key and a QR code. A public page tells genuine from edited or unsigned.',
+                'The AI service account gets a 403 on decisions. Officers decide, and adverse calls need a named second officer.'
             ]
         },
         {
@@ -124,6 +137,20 @@ window.SITE = {
                 'Anti-hallucination pipeline: vision LLM and local OCR run in parallel and cross-check MRP, batch number and net quantity.',
                 'Deterministic rules engine codified from the actual Gazette notification G.S.R. 629(E).',
                 'Human-in-the-loop officer review plus automated PDF/DOCX reports.'
+            ]
+        },
+        {
+            id: 'alreadybuilt', tone: 'plum', name: 'Already Built?', kicker: 'competitor research for ideas', cat: ['ai', 'web'],
+            repo: 'https://github.com/ronaksarda/already-built', viz: 'quadrant',
+            hook: 'Describe your idea, find out who already built it, and where the gap is.',
+            desc: 'Searches GitHub, Hugging Face and Hacker News, ranks results with local embeddings, and maps competitors onto a 2D market quadrant.',
+            tags: ['Python', 'Embeddings', 'Gemma', 'Hugging Face'],
+            demo: ['Type or speak the product idea', 'Search GitHub, Hugging Face Spaces and Models, and Show HN', 'Rank candidates locally with open-weight embeddings', 'Place every competitor on a 2D market quadrant', '=Grounded breakdown of what exists and which gaps are left open'],
+            points: [
+                'Seven-stage pipeline from idea to a grounded competitive breakdown.',
+                'Local semantic vector ranking, no hosted embedding API.',
+                'Offline demo mode with a recorded result for instant playback.',
+                'Packaged as a reusable agent skill.'
             ]
         },
         {
@@ -193,6 +220,17 @@ window.SITE = {
             ]
         }
     ],
+
+    // the visitor question: each answer names three project ids and one line from me
+    ask: {
+        q: 'What brings you here?',
+        answers: [
+            { k: 'hire', label: "I'm a recruiter or hiring manager", line: 'I am open to internships from January 2027. These three show how I work, from shipped product to hard limits on an agent.', picks: ['couch', 'gitspace', 'ghosttext'] },
+            { k: 'build', label: "I'm building something", line: 'I like agents with hard limits, and C++ when speed matters. Start with these.', picks: ['ideator', 'ghosttext', 'ranker'] },
+            { k: 'hack', label: 'I need a hackathon teammate', line: 'Smart India Hackathon, HackerRank Orchestrate, Redrob. These are the ones that shipped under a deadline.', picks: ['pramaan', 'labelsure', 'ranker'] },
+            { k: 'look', label: 'Just looking', line: 'Fun ones first. Mr. Couch has a demo video.', picks: ['couch', 'soulflow', 'gitspace'] }
+        ]
+    },
 
     hangar: [
         { name: 'Star', desc: 'An AI agent on your watch. Think Baymax, but on your wrist.', tags: 'AI agent · wearable', progress: 15 },

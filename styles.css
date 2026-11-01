@@ -490,30 +490,25 @@ h1 { margin: 0 0 30px; font: 400 clamp(26px, 4.6vw, 46px)/1.3 var(--pixel); text
 .sheet-art { position: absolute; inset: 0; width: 100%; height: 100%; }
 .sheet-still { object-position: 50% 30%; }
 
-/* ---------- tower of hanoi ---------- */
-
-.hanoi { padding: 22px; image-rendering: pixelated; }
-.hn-bar { display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: center; justify-content: space-between; margin-bottom: 16px; }
-.hn-seg { display: flex; gap: 6px; }
-.hn-seg button { width: 40px; height: 40px; border: 0; background: var(--surface-2); color: var(--ink-2); font: 400 12px/1 var(--pixel); box-shadow: 0 0 0 2px var(--line); cursor: pointer; }
-.hn-seg button[aria-pressed="true"] { background: var(--c-play); color: #fff; box-shadow: 0 0 0 2px var(--ink); }
-.hn-stats { display: flex; gap: 16px; font: 400 10px/1.4 var(--pixel); color: var(--ink-3); }
-.hn-stats b { color: var(--ink); font-weight: 400; margin-left: 4px; }
-.hn-board { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; padding: 16px 10px 0; background: var(--surface-2); box-shadow: inset 0 0 0 2px var(--line); }
-.hn-peg { position: relative; height: 230px; border: 0; background: none; padding: 0; cursor: pointer; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; color: inherit; }
-.hn-peg:hover, .hn-peg:focus-visible { background: color-mix(in srgb, var(--c-play) 8%, transparent); }
-.hn-peg.sel { background: color-mix(in srgb, var(--c-play) 14%, transparent); }
-.hn-rod { position: absolute; left: 50%; bottom: 0; width: 10px; height: 92%; margin-left: -5px; background: var(--ink-3); opacity: .55; }
-.hn-stack { position: relative; width: 100%; display: flex; flex-direction: column-reverse; align-items: center; gap: 3px; padding-bottom: 10px; }
-.hn-disk { display: block; height: 22px; width: var(--w); background: var(--c);
-    box-shadow: inset 4px 4px 0 rgba(255, 255, 255, .35), inset -4px -4px 0 rgba(0, 0, 0, .22), 0 0 0 3px #18181b;
-    transition: transform .15s steps(3, end); }
-.hn-disk.up { transform: translateY(-16px); }
-.hn-peg.bad { animation: hn-shake .3s steps(4, end); }
-@keyframes hn-shake { 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } }
-.hn-msg { min-height: 1.6em; margin: 14px 0 6px; font: 400 10px/1.7 var(--pixel); color: var(--ink-2); }
-.hn-actions { display: flex; gap: 10px; flex-wrap: wrap; }
-@media (max-width: 700px) { .hn-peg { height: 190px; } .hanoi { padding: 16px; } .hn-disk { height: 18px; } }
+/* ---------- visitor question ---------- */
+.ask { padding: 24px; }
+.ask-q { margin: 0 0 16px; font: 400 13px/1.6 var(--pixel); color: var(--ink); }
+.ask-opts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.ask-opt { padding: 16px 18px; border: 0; border-radius: 14px; background: var(--surface-2); color: var(--ink); font: 600 16px/1.3 inherit; text-align: left; box-shadow: 0 0 0 1.5px var(--line); cursor: pointer; transition: transform .15s, box-shadow .15s; }
+.ask-opt:hover, .ask-opt:focus-visible { transform: translateY(-2px); box-shadow: 0 0 0 2px var(--c-play); }
+.ask-line { margin: 0 0 18px; color: var(--ink-2); font-size: 16px; line-height: 1.55; max-width: 60ch; }
+.ask-picks { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 18px; }
+.ask-pick { display: flex; flex-direction: column; gap: 8px; padding: 16px; border: 0; border-radius: 14px; color: #fff; text-align: left; cursor: pointer; transition: transform .15s; }
+.ask-pick:hover, .ask-pick:focus-visible { transform: translateY(-3px); }
+.ask-pick.tone-night { background: var(--tone-night); }
+.ask-pick.tone-moss { background: var(--tone-moss); }
+.ask-pick.tone-brick { background: var(--tone-brick); }
+.ask-pick.tone-plum { background: var(--tone-plum); }
+.ask-pick.tone-ink { background: var(--tone-ink, #1c1c1f); }
+.ask-pick-name { font: 400 13px/1.5 var(--pixel); }
+.ask-pick-hook { font-size: 14px; line-height: 1.45; color: rgba(255, 255, 255, .88); }
+.ask-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+@media (max-width: 700px) { .ask { padding: 18px; } .ask-opts, .ask-picks { grid-template-columns: 1fr; } }
 
 .logo-guy, .pc-art, .sheet-art { stroke: none; fill: none; }
 

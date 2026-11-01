@@ -390,7 +390,7 @@
         if (e.target instanceof Element && e.target.closest('input, textarea, select, [contenteditable]')) return;
         togglePaint();
     });
-    // never paint over the Tower of Hanoi
+    // never paint over the visitor question
     const canPaint = (e) => paintOn() && !(e.target instanceof Element && e.target.closest('#play'));
 
     function move(cx, cy) {
