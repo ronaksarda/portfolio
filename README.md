@@ -1,6 +1,6 @@
 # ronaksarda.github.io
 
-Personal site of **Ronak Sarda**: Founding AI Engineering Intern @ FschoolAI, B.E. IT @ CBIT Hyderabad (class of 2029).
+Personal site of **Ronak Sarda**: Founding Head of Engineering at FschoolAI, B.E. IT @ CBIT Hyderabad (class of 2029).
 
 Live: **https://ronaksarda.github.io**
 

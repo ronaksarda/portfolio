@@ -21,12 +21,14 @@ window.SITE = {
 
     journey: [
         {
-            when: 'Sep 2026 to now', title: 'Founding AI Engineering Intern', org: 'FschoolAI', where: 'San Francisco, CA · remote', current: true,
+            when: 'Sep 2026 to now', title: 'Founding Head of Engineering (intern)', org: 'FschoolAI', where: 'San Francisco, CA · remote', current: true,
             points: [
-                'Lead MVP delivery for an AI study platform, setting priorities for a team of 8 while building its tutor, rooms and courses in TypeScript and React.',
-                'Built the tutor reply path: streaming, model-tier routing and failover across providers, so one provider outage no longer breaks a session.',
-                'Built study rooms with a live whiteboard the AI draws and writes on, with one validation layer for every AI board action across typed, streamed and voice input.',
-                'Shipped a Course Maker that turns a Canvas syllabus into a full course, and an onboarding interview saved to student memory.'
+                'Lead MVP delivery for an AI study platform, setting priorities for a team of 8 shipping an AI tutor, live AI whiteboard rooms and an LLM Course Maker in TypeScript and React.',
+                'Cut AI tutor time-to-first-token from 14.9 s to 1.5 s by picking models from measurement (Haiku 0.7 s vs Gemini Flash-Lite 5.6 s), turning off thinking on streamed turns, and routing turns with a rule-based planner instead of a model call.',
+                'Fixed RAG grounding: course material reached only 0.1% of room turns because embeddings were built from prompt boilerplate and the search skipped the course corpus.',
+                'Built per-student LLM cost ledgers ($4/month cap, $0.27 mean) that drop heavy users to a cheaper model tier instead of cutting them off, with TTFT and cost-per-user monitoring.',
+                'Built cross-provider LLM failover with stream rescue, so one provider outage no longer breaks a session.',
+                'Shipped a Course Maker that turns a Canvas syllabus into a full course, an onboarding interview saved to student memory, and a safety filter that keeps self-harm language out of memory without a model call.'
             ]
         },
         {

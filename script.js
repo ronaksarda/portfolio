@@ -33,7 +33,7 @@
     /* ---------- about ---------- */
     $('#about-body').innerHTML = `
         <div class="about-text">
-            <p class="lead">I'm Ronak, a second-year IT student at CBIT Hyderabad and the founding AI engineering intern at <b>FschoolAI</b>.</p>
+            <p class="lead">I'm Ronak, a second-year IT student at CBIT Hyderabad and Founding Head of Engineering at <b>FschoolAI</b>.</p>
             <p>Most of my work is AI agents that do real things on real machines: Mr. Couch runs chores on your laptop behind a permission checklist, Ideator walks a knowledge graph of competitors, and Candidate Ranker ranks 100,000 people on one CPU. C++ comes out when something has to be fast.</p>
             <p>Right now I'm building <b>Star</b>, an AI agent for your watch. Think Baymax, but on your wrist.</p>
             <p>Technical member of HICON at CBIT and a member of GDG Hyderabad. CS50x graduate, HackerRank Gold in C and C++. Currently taking Probability for AI from Stanford.</p>
