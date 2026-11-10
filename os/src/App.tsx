@@ -45,7 +45,6 @@ function title(w: Win) {
 
 export default function App() {
   const [wins, setWins] = useState<Win[]>([]);
-  const [selected, setSelected] = useState<string | null>(null);
   const top = useRef(10);
   const opened = useRef(0);
 
@@ -80,13 +79,12 @@ export default function App() {
   return (
     <div className="os">
       <MenuBar onLogo={() => open('readme')} />
-      <main className="desktop" onPointerDown={(e) => (e.target === e.currentTarget || (e.target as Element).classList.contains('wallpaper')) && setSelected(null)}>
+      <main className="desktop">
         <Wallpaper />
         <button className="astro" onClick={() => open('readme')} aria-label="Astronaut. Open readme.txt"><Astronaut size={88} /></button>
         <nav className="icons" aria-label="Desktop">
           {DESKTOP.map((d) => (
-            <DeskIcon key={d.kind} icon={d.icon} label={d.label} selected={selected === d.kind}
-              onSelect={() => setSelected(d.kind)} onOpen={() => open(d.kind)} />
+            <DeskIcon key={d.kind} icon={d.icon} label={d.label} onOpen={() => open(d.kind)} />
           ))}
         </nav>
         <Stickers onOpen={() => open('trophies')} />
@@ -115,14 +113,10 @@ function MenuBar({ onLogo }: { onLogo: () => void }) {
   );
 }
 
-function DeskIcon({ icon, label, selected, onSelect, onOpen, thumb }: {
-  icon: IconName; label: string; selected?: boolean; onSelect?: () => void; onOpen: () => void; thumb?: ReactNode;
-}) {
+// one click opens: visitors on the web expect links, not desktop double-clicks
+function DeskIcon({ icon, label, onOpen, thumb }: { icon: IconName; label: string; onOpen: () => void; thumb?: ReactNode }) {
   return (
-    <button className={`dicon${selected ? ' is-sel' : ''}`}
-      onClick={(e) => { onSelect?.(); if ((e.nativeEvent as PointerEvent).pointerType === 'touch') onOpen(); }}
-      onDoubleClick={onOpen}
-      onKeyDown={(e) => e.key === 'Enter' && (e.preventDefault(), onOpen())}>
+    <button className="dicon" onClick={onOpen}>
       <span className="dicon-img">{thumb ?? <Icon name={icon} />}</span>
       <span className="dicon-label">{label}</span>
     </button>
@@ -199,7 +193,7 @@ function Content({ win, open }: { win: Win; open: Open }) {
         <p>I build AI agents with hard limits, and reach for C++ when speed matters. Open to internships from January 2027.</p>
         <h2>Using this computer</h2>
         <ul>
-          <li>Double-click any icon on the left. On a phone, tap it.</li>
+          <li>Click any icon on the left.</li>
           <li>Type <code>help</code> in Terminal.</li>
           <li>In a hurry? <a href={PLAIN_URL}>Plain view</a>, top right, has everything on one page.</li>
         </ul>

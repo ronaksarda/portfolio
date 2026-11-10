@@ -59,8 +59,8 @@ button { font: inherit; color: inherit; }
 .dicon-img { display: grid; place-items: center; height: 44px; }
 .dicon-img svg { image-rendering: pixelated; }
 .dicon-label { font-size: 14px; line-height: 1.2; padding: 1px 3px; overflow-wrap: break-word; max-width: 100%; }
-.dicon.is-sel .dicon-label, .dicon:focus-visible .dicon-label { background: var(--marigold); color: var(--ink); }
-.dicon.is-sel .dicon-img { filter: drop-shadow(0 0 0 var(--marigold)) brightness(.85); }
+.dicon { cursor: pointer; }
+.dicon:hover .dicon-label, .dicon:focus-visible .dicon-label { background: var(--marigold); color: var(--ink); text-shadow: none; }
 
 /* trophies stuck on the screen */
 .stickers { position: absolute; inset: 0; pointer-events: none; }
@@ -197,6 +197,24 @@ button { font: inherit; color: inherit; }
   .stickers { display: none; }
   .icons { inset: 12px; grid-auto-flow: row; grid-template-columns: repeat(auto-fill, 88px); grid-template-rows: none; justify-content: center; }
   .win { left: 6px !important; top: 6px !important; width: auto !important; height: auto !important; right: 6px; bottom: 6px; max-width: none; }
+}
+
+/* scrollbars: beveled plastic thumb on a dithered track, like the window chrome */
+::-webkit-scrollbar { width: 16px; height: 16px; }
+::-webkit-scrollbar-track { background: repeating-conic-gradient(var(--plastic-lo) 0 25%, var(--plastic) 0 50%) 0 0 / 4px 4px; }
+::-webkit-scrollbar-thumb {
+  background: var(--plastic); border: 2px solid; border-color: var(--plastic-hi) var(--plastic-lo) var(--plastic-lo) var(--plastic-hi);
+  box-shadow: 0 0 0 1px var(--ink); min-height: 32px;
+}
+::-webkit-scrollbar-thumb:active { background: var(--marigold); }
+::-webkit-scrollbar-corner { background: var(--plastic); }
+/* terminal keeps its CRT look */
+.win-body:has(.term)::-webkit-scrollbar-track { background: var(--crt); box-shadow: inset 1px 0 0 #3A2A12; }
+.win-body:has(.term)::-webkit-scrollbar-thumb { background: #6B4A12; border-color: #A8701F #3A2A12 #3A2A12 #A8701F; }
+.win-body:has(.term)::-webkit-scrollbar-corner { background: var(--crt); }
+@supports not selector(::-webkit-scrollbar) {
+  * { scrollbar-color: var(--plum) var(--plastic); }
+  .win-body:has(.term) { scrollbar-color: #A8701F var(--crt); }
 }
 
 @media (prefers-reduced-motion: reduce) { .win, .astro { animation: none; } }
