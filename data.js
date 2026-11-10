@@ -34,8 +34,8 @@ window.SITE = {
         {
             when: '2026', title: 'Technical Member', org: 'HICON, CBIT · GDG Hyderabad',
             points: [
-                'Coordinator, SIH internal hackathon with HICON. Curated problem statements and hosted ceremonies for 400+ teams, 2,100+ students.',
-                'Organizer, HackIndia Spark11: 36-hour hackathon, 2,500+ participants, 550 teams.',
+                'Coordinator, SIH internal hackathon with HICON. Curated problem statements and hosted ceremonies for 150+ teams, 1,000+ students.',
+                'Organizer, HackIndia Spark11: 36-hour hackathon, 1,600+ builders, 529 teams.',
                 'Member, GDG Hyderabad. Google Cloud Facilitator 2026 with 34 Google Cloud skill badges.'
             ]
         },
@@ -62,7 +62,7 @@ window.SITE = {
         },
         {
             id: 'gitspace', tone: 'night', name: 'GitSpace', kicker: 'developer universe', cat: ['web', 'systems'], wide: true, live: 'https://gitspace.me',
-            repo: 'https://github.com/ronaksarda/GitSpace', viz: 'gif',
+            repo: 'https://github.com/ronaksarda/GitSpace', viz: 'gif', img: 'assets/projects/gitspace.jpg',
             hook: 'Your GitHub universe as a galaxy you can fly through.',
             desc: 'Every developer is an island. Every repo is a building. Fly a ship with WASD, warp to other devs, unlock achievements.',
             tags: ['JavaScript', 'Node / Express', 'PostgreSQL', 'C++17', 'HTML5 Canvas', 'Render'],
@@ -118,6 +118,7 @@ window.SITE = {
         {
             id: 'pramaan', tone: 'ink', name: 'Pramaan', kicker: 'verified disclosure for AICTE approvals', cat: ['ai', 'web'], team: true,
             repo: 'https://github.com/ronaksarda/pramaan-sih26261', badge: 'Smart India Hackathon 2026',
+            video: 'D35T_xNiehQ', img: 'https://i.ytimg.com/vi/D35T_xNiehQ/maxresdefault.jpg',
             hook: 'College approvals run on self-declared paperwork. Pramaan rates how much of each claim is proven.',
             desc: 'Working MVP for SIH 2026 PS 26261. Applications and documents are synthetic; the checks run for real.',
             tags: ['Python', 'FastAPI', 'pyHanko', 'CLIP', 'RapidOCR'],
@@ -254,11 +255,11 @@ window.SITE = {
     trophies: [
         { big: '#329', title: 'HackerRank Orchestrate', text: 'Ranked #329 of 1,773 globally for an AI agent (June 2026).', cert: 'hackerrank' },
         { big: 'Top 7', title: 'CBIT COSC HackWeek', text: 'Top 7 of 800+ participants.' },
-        { big: 'Top 10', title: 'AB Talks ViCoDathon 2026', text: "India's AI vibe-coding hackathon.", cert: 'abtalks' },
+        { big: 'Top 15', title: 'Hacktoberfest 2026, NIAT Hyderabad', text: 'Top 15, competing solo.' },
+        { big: 'Top 10', title: 'ViCoDathon 2026', text: "India's AI vibe-coding hackathon.", cert: 'abtalks' },
         { big: '#138', title: "ECSoC '26", text: 'Ranked 138 of 13,000+ in Elite Coders Summer of Code.', cert: 'ecsoc-appreciation' },
         { big: 'R2', title: 'Citadel Securities', text: 'Reached the 2nd interview round (DSA) as a first-year.' },
         { big: 'R2', title: 'Adobe University Hackathon', text: 'Qualified for Round 2.' },
-        { big: 'R2', title: 'COOL Reverse Hackathon', text: 'Qualified for Round 2.', cert: 'reverse-hackathon' },
         { big: '2026', title: 'Google Solution Challenge', text: 'Build with AI prototype submission (Hack2Skill).', cert: 'solution-challenge' },
         { big: 'OSS', title: '7Blocks · Kepler', text: 'Contribution certificate for the open-source Kepler platform.', cert: '7B' },
         { big: '34', title: 'Google Cloud Facilitator', text: '2026 facilitator · 34 Google Cloud skill badges.' },
@@ -270,8 +271,7 @@ window.SITE = {
         { id: 'microsoft-learn', title: 'Applied Skills: Agents in Microsoft Foundry', by: 'Microsoft · Jun 2026' },
         { id: 'ecsoc-appreciation', title: "ECSoC '26 · Rank 138", by: 'Elite Coders · 2026' },
         { id: '7B', title: 'Open-source contribution · Kepler', by: '7Blocks · Sep 2026' },
-        { id: 'reverse-hackathon', title: 'Reverse Hackathon · Round 2', by: 'COOL · 2026' },
-        { id: 'abtalks', title: 'ViCoDathon 2026', by: 'AB Talks · Aug 2026' },
+        { id: 'abtalks', title: 'ViCoDathon 2026', by: 'Aug 2026' },
         { id: 'solution-challenge', title: 'Solution Challenge 2026', by: 'Google for Developers × H2S' },
         { id: 'bootcamp-hyd', title: 'Build with AI Bootcamp, Hyderabad', by: 'Google for Developers · Jul 2026' },
         { id: 'agents-course', title: 'Fundamentals of Agents', by: 'Hugging Face · Jul 2026' },
