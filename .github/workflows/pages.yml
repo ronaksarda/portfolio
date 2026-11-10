@@ -1,0 +1,35 @@
+# Publishes the repo as-is to GitHub Pages. The desktop is prebuilt into index.html + desktop/,
+# so there is no build step here.
+name: Deploy site
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# a newer push cancels an older deploy, so only the latest commit ever ships
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    # the same commits are pushed to the portfolio repo, which does not serve this site
+    if: github.repository == 'ronaksarda/ronaksarda.github.io'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - id: deployment
+        uses: actions/deploy-pages@v4
