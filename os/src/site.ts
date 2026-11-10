@@ -23,6 +23,7 @@ declare global { interface Window { SITE: Site; ART: Art } }
 
 export const SITE = window.SITE;
 export const ART = window.ART;
-// Root data.js paths start with "assets/"; Vite serves that folder as the public root.
-export const asset = (p: string) => import.meta.env.BASE_URL + p.replace(/^assets\//, '');
-export const certSrc = (id: string) => asset(`certs/${id}.jpg`);
+// Assets live once, in the repo's assets/. Built desktop sits at <site>/desktop/, so it reaches them one level up;
+// the dev server serves the repo root as its public dir.
+export const asset = (p: string) => (import.meta.env.DEV ? '/' : '../') + p;
+export const certSrc = (id: string) => asset(`assets/certs/${id}.jpg`);
