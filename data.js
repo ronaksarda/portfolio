@@ -1,6 +1,6 @@
 // All site content lives here. Every chat answer is built from this file, so edit it to change what the site says.
 window.SITE = {
-    discord: 'samronnie_05',
+    discord: 'ronaksarda',
     email: 'rockysarda18@gmail.com',
     phone: '+91 93904 17137',
     resume: 'assets/resume/Ronak_Sarda_Resume.pdf',
