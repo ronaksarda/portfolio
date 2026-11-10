@@ -6,8 +6,7 @@ import { exec, BANNER, type Line } from './terminal';
 
 const GITSPACE_DEMO = 'https://raw.githubusercontent.com/ronaksarda/GitSpace/main/readme_demo.gif';
 
-// the desktop is deployed at <site>/desktop/, so the plain site is one level up
-const PLAIN_URL = '../';
+const PLAIN_URL = 'plain.html';
 const BAR = 32; // menubar height; windows never go above it
 
 type Win = { key: string; kind: string; arg?: string; x: number; y: number; z: number };

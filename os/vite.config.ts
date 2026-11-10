@@ -7,7 +7,8 @@ export default defineConfig(({ command }) => ({
   plugins: [react()],
   // dev: serve the repo root so /assets/... resolves; build: copy nothing, the live site already has assets/
   publicDir: command === 'serve' ? '..' : false,
-  // Pages serves the repo as-is (no build step), so the built desktop is committed in /desktop
-  build: { outDir: '../desktop', emptyOutDir: true },
+  // Pages serves the repo as-is (no build step): the desktop is the site's home page, so the build
+  // writes the repo-root index.html and puts its JS/CSS in /desktop. package.json clears /desktop first.
+  build: { outDir: '..', emptyOutDir: false, assetsDir: 'desktop' },
   server: { fs: { allow: ['..'] } },
 }));

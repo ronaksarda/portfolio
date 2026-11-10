@@ -4,18 +4,23 @@ Personal site of **Ronak Sarda**: Founding Head of Engineering at FschoolAI, B.E
 
 Live: **https://ronaksarda.github.io**
 
-One scrolling page: hero, about, experience, projects, skills, wins and certificates, contact. A floating dock jumps between sections and highlights the one in view. Project cards open a detail sheet; certificates open in a lightbox.
+Two views of the same content, both read from `data.js`:
 
-Behind everything is a WebGL paint layer: move the pointer to drag colour around, click to drop a splash. The paint lingers and mixes, then the loop stops once it has faded. It stays off under `prefers-reduced-motion`.
-
-Plain HTML, CSS and JavaScript. No build step, no frameworks.
+- **Desktop** (home page): a retro computer. Folders for projects, trophies and certificates, a working terminal, trophy stickers, and a live pixel black hole wallpaper. Built with Vite, React, TypeScript and Three.js; source in `os/`.
+- **Plain view** (`plain.html`): one scrolling page for a quick read. Plain HTML, CSS and JavaScript, no build step.
 
 | File | What it holds |
 |---|---|
-| `index.html` | page skeleton: hero, section shells, dock, dialogs |
 | `data.js` | every fact the site says (edit this to update content) |
-| `script.js` | renders every section from `data.js`, dock, dialogs, theme |
-| `fluid.js` | the cursor paint background |
-| `styles.css` | everything visual, light and dark tokens |
+| `assets/` | photos, certificates, resume PDF, shared by both views |
+| `os/` | desktop source |
+| `index.html`, `desktop/` | built desktop (generated, do not edit) |
+| `plain.html`, `script.js`, `styles.css`, `fluid.js` | plain view |
 
-Run locally: `python -m http.server` and open http://localhost:8000.
+GitHub Pages serves the repo as-is, so the built desktop is committed. After changing `os/` or `data.js`:
+
+```
+npm --prefix os run build
+```
+
+Run locally: `npm --prefix os run dev` for the desktop, or `python -m http.server` and open http://localhost:8000/plain.html for the plain view.

@@ -11,7 +11,9 @@
   --phosphor: #FFB33F;
   --crt: #140D04;
   --ui: 'Pixelify Sans', system-ui, sans-serif;
-  --doc: 'Courier Prime', 'Courier New', monospace;
+  --doc: var(--ui);
+  /* terminal needs fixed-width columns, so it gets a monospace pixel face */
+  --mono: 'VT323', ui-monospace, monospace;
 }
 
 * { box-sizing: border-box; }
@@ -180,7 +182,7 @@ button { font: inherit; color: inherit; }
 
 /* terminal: amber phosphor with scanlines */
 .term {
-  min-height: 100%; padding: 10px 12px; background: var(--crt); color: var(--phosphor); font: 15px/1.45 var(--doc);
+  min-height: 100%; padding: 10px 12px; background: var(--crt); color: var(--phosphor); font: 20px/1.25 var(--mono);
   white-space: pre-wrap; text-shadow: 0 0 6px rgba(255, 179, 63, .45);
   background-image: repeating-linear-gradient(0deg, rgba(0, 0, 0, .25) 0 1px, transparent 1px 3px);
 }

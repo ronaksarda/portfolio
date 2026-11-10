@@ -23,7 +23,7 @@ declare global { interface Window { SITE: Site; ART: Art } }
 
 export const SITE = window.SITE;
 export const ART = window.ART;
-// Assets live once, in the repo's assets/. Built desktop sits at <site>/desktop/, so it reaches them one level up;
-// the dev server serves the repo root as its public dir.
-export const asset = (p: string) => (import.meta.env.DEV ? '/' : '../') + p;
+// Assets live once, in the repo's assets/. The desktop is the site root, so "assets/..." paths resolve as written
+// (the dev server serves the repo root as its public dir).
+export const asset = (p: string) => p;
 export const certSrc = (id: string) => asset(`assets/certs/${id}.jpg`);
