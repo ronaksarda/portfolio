@@ -324,7 +324,10 @@ const Prompt = () => <><span className="t-user">ronak@cbit</span><span className
 function TermLine({ l }: { l: Line }) {
   if (typeof l === 'string') return <div>{l || ' '}</div>;
   if (l[0]?.[1] === 'prompt') return <div><Prompt /> {l[0][0]}</div>;
-  return <div>{l.map(([t, tone], i) => <span key={i} className={tone ? `t-${tone}` : undefined}>{t}</span>)}</div>;
+  return <div>{l.map(([t, tone], i) => t.endsWith(' ') && tone === 'hi'
+    // padded key column: Pixelon is proportional, so spaces can't line up the values; size the cell instead
+    ? <span key={i} className="t-hi" style={{ display: 'inline-block', minWidth: `${t.length}ch`, paddingRight: '1ch' }}>{t.trimEnd()}</span>
+    : <span key={i} className={tone ? `t-${tone}` : undefined}>{t}</span>)}</div>;
 }
 
 function Terminal({ open }: { open: Open }) {
