@@ -49,6 +49,19 @@ button { font: inherit; color: inherit; }
   animation: drift 9s steps(18) infinite alternate; filter: drop-shadow(0 0 10px rgba(242, 177, 52, .25));
 }
 .astro svg { display: block; }
+/* astronaut's speech bubble; stays put while the astronaut drifts */
+.bubble {
+  position: absolute; left: calc(58% - 150px); bottom: calc(7% + 118px); width: 300px; z-index: 5; padding: 12px 14px;
+  background: var(--paper); color: var(--ink); border: 2px solid var(--ink); box-shadow: 4px 4px 0 var(--ink); font: 16px/1.45 var(--doc);
+}
+.bubble::after { content: ''; position: absolute; left: 160px; bottom: -14px; border: 7px solid transparent; border-top-color: var(--ink); }
+.bubble p { margin: 0 0 10px; }
+.bubble-btns { display: flex; gap: 8px; flex-wrap: wrap; }
+/* icons the astronaut points at blink; the ones it says to skip fade */
+.dicon.is-look .dicon-label { background: var(--marigold); color: var(--ink); text-shadow: none; }
+.dicon.is-look .dicon-img { animation: blink 1s steps(2) infinite; }
+@keyframes blink { 50% { translate: 0 -4px; } }
+.dicon.is-skip { opacity: .45; }
 @keyframes drift { from { translate: 0 0; rotate: -8deg; } to { translate: -40px -28px; rotate: 10deg; } }
 
 .icons {
@@ -202,6 +215,8 @@ button { font: inherit; color: inherit; }
 
 @media (max-width: 760px) {
   .stickers { display: none; }
+  .bubble { left: 12px; right: 12px; bottom: 120px; width: auto; }
+  .bubble::after { left: auto; right: 40%; }
   .icons { inset: 12px; grid-auto-flow: row; grid-template-columns: repeat(auto-fill, 88px); grid-template-rows: none; justify-content: center; }
   .win { left: 6px !important; top: 6px !important; width: auto !important; height: auto !important; right: 6px; bottom: 6px; max-width: none; }
 }
@@ -224,4 +239,4 @@ button { font: inherit; color: inherit; }
   .win-body:has(.term) { scrollbar-color: #A8701F var(--crt); }
 }
 
-@media (prefers-reduced-motion: reduce) { .win, .astro { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .win, .astro, .dicon.is-look .dicon-img { animation: none; } }

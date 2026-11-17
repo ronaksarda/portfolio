@@ -30,6 +30,16 @@ const SIZE: Record<string, [number, number]> = {
   hangar: [460, 380], contact: [420, 360],
 };
 
+// the astronaut's tour: what to look at first, and what is fine to skip
+const TIPS: { text: string; kind?: string; arg?: string; look?: string[]; skip?: string[] }[] = [
+  { text: "Hi! Short on time? I'll show you what's worth a look. Click me any time for the next tip." },
+  { text: 'Start with Trophies. Ronak just won a DEV Hacktoberfest challenge.', kind: 'trophies', look: ['trophies'] },
+  { text: 'Then Projects. Ghost Text is the winner, look for the WIN tag.', kind: 'project', arg: 'ghosttext', look: ['projects'] },
+  { text: 'experience.txt: what he does at FschoolAI, leading an 8-person team.', kind: 'work', look: ['work'] },
+  { text: 'resume.pdf has it all on one page. contact.card if you want to talk.', kind: 'resume', look: ['resume', 'contact'] },
+  { text: 'Lab, In progress, Certificates and Terminal are extras. Skip them if you are busy.', look: [], skip: ['lab', 'hangar', 'certs', 'terminal', 'readme'] },
+];
+
 const project = (id?: string) => SITE.projects.find((p) => p.id === id);
 const imgSrc = (p: Project) => p.img && (/^https?:/.test(p.img) ? p.img : asset(p.img));
 const thumb = (p: Project) => p.img ? <img className="thumb" src={imgSrc(p)} alt="" loading="lazy" />
@@ -74,16 +84,30 @@ export default function App() {
   }, []);
 
   const topZ = Math.max(0, ...wins.map((w) => w.z));
+  const [step, setStep] = useState(0); // astronaut tour; -1 = dismissed
+  const tip = TIPS[step];
 
   return (
     <div className="os">
       <MenuBar onLogo={() => open('readme')} />
       <main className="desktop">
         <Wallpaper />
-        <button className="astro" onClick={() => open('readme')} aria-label="Astronaut. Open readme.txt"><Astronaut size={88} /></button>
+        <button className="astro" onClick={() => setStep(tip ? (step + 1) % TIPS.length : 0)}
+          aria-label={tip ? 'Astronaut. Next tip' : 'Astronaut. Show me around'}><Astronaut size={88} /></button>
+        {tip && (
+          <div className="bubble" role="status">
+            <p>{tip.text}</p>
+            <div className="bubble-btns">
+              {tip.kind && <button className="btn" onClick={() => open(tip.kind!, tip.arg)}>Show me</button>}
+              {step < TIPS.length - 1 && <button className="btn" onClick={() => setStep(step + 1)}>Next</button>}
+              <button className="btn" onClick={() => setStep(-1)}>{step < TIPS.length - 1 ? 'Skip' : 'Got it'}</button>
+            </div>
+          </div>
+        )}
         <nav className="icons" aria-label="Desktop">
           {DESKTOP.map((d) => (
-            <DeskIcon key={d.kind} icon={d.icon} label={d.label} onOpen={() => open(d.kind)} />
+            <DeskIcon key={d.kind} icon={d.icon} label={d.label} onOpen={() => open(d.kind)}
+              mark={tip?.look?.includes(d.kind) ? 'look' : tip?.skip?.includes(d.kind) ? 'skip' : undefined} />
           ))}
         </nav>
         <Stickers onOpen={() => open('trophies')} />
@@ -113,9 +137,9 @@ function MenuBar({ onLogo }: { onLogo: () => void }) {
 }
 
 // one click opens: visitors on the web expect links, not desktop double-clicks
-function DeskIcon({ icon, label, onOpen, thumb }: { icon: IconName; label: string; onOpen: () => void; thumb?: ReactNode }) {
+function DeskIcon({ icon, label, onOpen, thumb, mark }: { icon: IconName; label: string; onOpen: () => void; thumb?: ReactNode; mark?: 'look' | 'skip' }) {
   return (
-    <button className="dicon" onClick={onOpen}>
+    <button className={mark ? `dicon is-${mark}` : 'dicon'} onClick={onOpen}>
       <span className="dicon-img">{thumb ?? <Icon name={icon} />}</span>
       <span className="dicon-label">{label}</span>
     </button>
