@@ -214,7 +214,7 @@ function Content({ win, open }: { win: Win; open: Open }) {
       <div className="folder">
         {SITE.projects.map((p) => (
           <DeskIcon key={p.id} icon="doc" label={p.name} onOpen={() => open('project', p.id)}
-            thumb={<>{thumb(p)}{p.win && <b className="prize-corner">WIN</b>}</>} />
+            thumb={<>{thumb(p)}{p.win && <b className="prize-corner" aria-hidden="true">WIN</b>}</>} />
         ))}
       </div>
     );
