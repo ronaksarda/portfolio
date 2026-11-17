@@ -74,7 +74,7 @@ window.SITE = {
             ]
         },
         {
-            id: 'ghosttext', tone: 'night', name: 'Ghost Text', kicker: 'prompt-injection cleaner', cat: ['ai', 'systems'],
+            id: 'ghosttext', tone: 'night', name: 'Ghost Text', kicker: 'prompt-injection cleaner', cat: ['ai', 'systems'], win: 'Winner · DEV Hacktoberfest Week 4',
             repo: 'https://github.com/ronaksarda/ghost-text', img: 'https://raw.githubusercontent.com/ronaksarda/ghost-text/main/media/cover.png',
             video: 'HSeiU1gsd0k',
             hook: 'A web page can say one thing to you and another to your AI. Ghost Text finds the second one.',
@@ -253,6 +253,7 @@ window.SITE = {
     ],
 
     trophies: [
+        { big: 'WIN', title: 'DEV Hacktoberfest AI Challenge, Week 4', text: 'Winner, Best Use of Browserbase in Ghost in the Machine, the final week of the Hacktoberfest 2026 Open-Source AI Challenge (Nov 2026).', href: 'https://dev.to/ronaksarda/your-ai-is-hearing-voices-i-built-the-exorcist-4md', top: true },
         { big: '#329', title: 'HackerRank Orchestrate', text: 'Ranked #329 of 1,773 globally for an AI agent (June 2026).', cert: 'hackerrank' },
         { big: 'Top 7', title: 'CBIT COSC HackWeek', text: 'Top 7 of 800+ participants.' },
         { big: 'Top 15', title: 'Hacktoberfest 2026, NIAT Hyderabad', text: 'Top 15, competing solo.' },

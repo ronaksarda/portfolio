@@ -281,6 +281,7 @@ h1 { margin: 0 0 30px; font: 400 clamp(26px, 4.6vw, 46px)/1.3 var(--pixel); text
 .pc-foot { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 6px; }
 .pc-foot span { font-size: 12px; padding: 3px 9px; border-radius: 999px; background: rgba(255, 255, 255, .12); color: rgba(255, 255, 255, .88); }
 .pc-foot .flag { background: #f4f3ef; color: #111110; font-weight: 700; }
+.pc-foot .flag.prize { background: #ffc94a; }
 .pcard img.pc-media { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; object-fit: cover; filter: blur(2px) brightness(.5); transform: scale(1.04); transition: filter .3s var(--ease); }
 .pcard:hover img.pc-media { filter: blur(0) brightness(.45); }
 
@@ -309,6 +310,7 @@ h1 { margin: 0 0 30px; font: 400 clamp(26px, 4.6vw, 46px)/1.3 var(--pixel); text
 .win { padding: 22px; display: flex; flex-direction: column; }
 .win .big { font: 400 20px/1.3 var(--pixel); color: var(--ink); }
 .win.hot .big { color: var(--c-wins); }
+.win.star { grid-column: 1 / -1; outline: 2px solid var(--c-wins); outline-offset: -2px; }
 .win h3 { margin: 14px 0 4px; font-size: 16px; font-weight: 700; }
 .win p { margin: 0; color: var(--ink-2); font-size: 15px; }
 .linkish { align-self: flex-start; margin-top: auto; padding: 12px 0 0; border: 0; background: none; font-size: 14px; font-weight: 600; color: var(--accent); }

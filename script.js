@@ -52,7 +52,7 @@
     /* ---------- projects ---------- */
     const P = S.projects;
     const gif = 'https://raw.githubusercontent.com/ronaksarda/GitSpace/main/readme_demo.gif';
-    const flags = (p) => [p.wip && 'Building', p.live && 'Live', p.badge || (p.team && 'Team')].filter(Boolean);
+    const flags = (p) => [p.win, p.wip && 'Building', p.live && 'Live', p.badge || (p.team && 'Team')].filter(Boolean);
 
     // real image when the repo has one, otherwise a pixel cover drawn in art.js
     const cardArt = (p) => p.viz === 'gif' ? `<img class="pc-media" src="${gif}" alt="" loading="lazy">`
@@ -69,7 +69,7 @@
             <span class="pc-kicker">${esc(p.kicker)}</span>
             <span class="pc-name">${esc(p.name)}</span>
             <span class="pc-hook">${esc(p.hook)}</span>
-            <span class="pc-foot">${flags(p).map((f) => `<span class="flag">${esc(f)}</span>`).join('')}${p.tags.slice(0, 2).map((t) => `<span>${esc(t)}</span>`).join('')}</span>
+            <span class="pc-foot">${flags(p).map((f) => `<span class="flag${f === p.win ? ' prize' : ''}">${esc(f)}</span>`).join('')}${p.tags.slice(0, 2).map((t) => `<span>${esc(t)}</span>`).join('')}</span>
         </button>`).join('');
 
     $('#hangar').innerHTML = S.hangar.map((h) => `<li>
@@ -129,11 +129,12 @@
 
     /* ---------- wins ---------- */
     $('#wins-body').innerHTML = S.trophies.map((t, i) => `
-        <div class="glass win${i < 4 ? ' hot' : ''}">
+        <div class="glass win${i < 4 ? ' hot' : ''}${t.top ? ' star' : ''}">
             <span class="big">${esc(t.big)}</span>
             <h3>${esc(t.title)}</h3>
             <p>${esc(t.text)}</p>
             ${t.cert ? `<button class="linkish" type="button" data-cert="${t.cert}">View certificate</button>` : ''}
+            ${t.href ? `<a class="linkish" href="${t.href}" target="_blank" rel="noopener">Read the post</a>` : ''}
         </div>`).join('');
     $('#certs').innerHTML = S.certs.map((c) => `
         <button class="cert" type="button" data-cert="${c.id}">

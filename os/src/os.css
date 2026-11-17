@@ -132,6 +132,10 @@ button { font: inherit; color: inherit; }
 
 .trophies { list-style: none; }
 .trophies li { display: grid; grid-template-columns: 84px 1fr; gap: 14px; padding: 12px 0; border-bottom: 1px dashed var(--plastic-lo); }
+.prize { display: inline-block; margin: 0 0 6px; padding: 2px 8px; background: #FFE9A8; border: 2px solid var(--ink); box-shadow: 3px 3px 0 var(--ink); font: 600 14px var(--ui); }
+.dicon-img { position: relative; }
+.prize-corner { position: absolute; top: -4px; right: -10px; padding: 0 4px; background: #FF7A45; color: var(--ink); border: 2px solid var(--ink); font: 600 11px/1.2 var(--ui); rotate: 8deg; }
+.trophies li.top { background: #FFE9A8; border: 2px solid var(--ink); box-shadow: 4px 4px 0 var(--ink); padding: 12px; margin-bottom: 10px; }
 .trophies h2 { margin: 0 0 2px !important; }
 .trophies .big { font: 600 26px/1 var(--ui); padding-top: 2px; }
 

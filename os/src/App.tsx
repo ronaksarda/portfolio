@@ -124,6 +124,7 @@ function DeskIcon({ icon, label, onOpen, thumb }: { icon: IconName; label: strin
 
 // picked by the trophy's big label so reordering data.js does not swap stickers
 const STICKERS = [
+  { big: 'WIN', rot: -5, x: 52, y: 6, color: '#FF7A45' },
   { big: '#329', rot: -7, x: 74, y: 10, color: '#F2B134' },
   { big: 'Top 7', rot: 5, x: 86, y: 26, color: '#F28AB8' },
   { big: 'Top 15', rot: -4, x: 72, y: 42, color: '#C9B6F2' },
@@ -212,7 +213,8 @@ function Content({ win, open }: { win: Win; open: Open }) {
     case 'projects': return (
       <div className="folder">
         {SITE.projects.map((p) => (
-          <DeskIcon key={p.id} icon="doc" label={p.name} onOpen={() => open('project', p.id)} thumb={thumb(p)} />
+          <DeskIcon key={p.id} icon="doc" label={p.name} onOpen={() => open('project', p.id)}
+            thumb={<>{thumb(p)}{p.win && <b className="prize-corner">WIN</b>}</>} />
         ))}
       </div>
     );
@@ -220,12 +222,13 @@ function Content({ win, open }: { win: Win; open: Open }) {
     case 'trophies': return (
       <ul className="paper trophies">
         {SITE.trophies.map((t) => (
-          <li key={t.title}>
+          <li key={t.title} className={t.top ? 'top' : undefined}>
             <b className="big">{t.big}</b>
             <div>
               <h2>{t.title}</h2>
               <p>{t.text}</p>
               {t.cert && <button className="btn" onClick={() => open('image', t.cert)}>Open certificate</button>}
+              {t.href && <a className="btn" href={t.href} target="_blank" rel="noopener">Read the post</a>}
             </div>
           </li>
         ))}
@@ -304,6 +307,7 @@ function ProjectDoc({ p }: { p: Project }) {
   return (
     <article className="paper project">
       {art && <div className="cover">{art}</div>}
+      {p.win && <p className="prize">{p.win}</p>}
       <h1>{p.name}</h1>
       <p className="meta">{p.kicker}</p>
       <p className="hook">{p.hook}</p>

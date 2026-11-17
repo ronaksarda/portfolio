@@ -4,7 +4,7 @@ import '../../art.js';
 
 export type Project = {
   id: string; name: string; kicker: string; hook: string; desc: string;
-  tags: string[]; points: string[]; repo?: string; live?: string; video?: string; img?: string; viz?: string;
+  tags: string[]; points: string[]; repo?: string; live?: string; video?: string; img?: string; viz?: string; win?: string;
 };
 export type Site = {
   email: string; discord: string; phone: string; resume: string;
@@ -13,7 +13,7 @@ export type Site = {
   projects: Project[];
   hangar: { name: string; desc: string; tags: string; progress: number; repo?: string }[];
   lab: { name: string; note: string; repo: string }[];
-  trophies: { big: string; title: string; text: string; cert?: string }[];
+  trophies: { big: string; title: string; text: string; cert?: string; href?: string; top?: boolean }[];
   certs: { id: string; title: string; by: string }[];
   stack: string[][];
 };
